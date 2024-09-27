@@ -8,6 +8,7 @@ import { PricingComponent } from './components/pricing/pricing.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ServicesComponent } from './components/services/services.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 
 export const routes: Routes = [
@@ -19,4 +20,5 @@ export const routes: Routes = [
     {title: "Namari - Sexy as hell | Pricing ", path: 'pricing', component: PricingComponent},
     {title: "Namari - Sexy as hell | Services ", path: 'services', component: ServicesComponent},
     {title: "Namari - Sexy as hell | Testimonials ", path: 'testimonials', component: TestimonialsComponent},
+    {title: "Namari - Sexy as hell | Notfound ", path: '**', component: NotfoundComponent}
 ];
