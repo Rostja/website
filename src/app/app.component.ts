@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -14,7 +15,7 @@ import { ServicesComponent } from './components/services/services.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, HeaderComponent, NavComponent, FooterComponent,
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule, HeaderComponent, NavComponent, FooterComponent,
      ClientsComponent, AboutComponent, PricingComponent, TestimonialsComponent,
       GalleryComponent, ServicesComponent],
   templateUrl: './app.component.html',
