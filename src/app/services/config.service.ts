@@ -169,4 +169,11 @@ configuration : ConfigItem[] = [
 
 
   constructor() { }
+
+  getAllPages(): ConfigItem[] {
+    return this.configuration;
+  }
+  getPageByName(pageName: string): ConfigItem | undefined {
+    return this.configuration.find ((ConfigItem) => ConfigItem.name === pageName);
+  }
 }

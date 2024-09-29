@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ConfigItem } from '../../services/config-item';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -8,14 +10,12 @@ import { Component } from '@angular/core';
   styleUrl: './testimonials.component.css'
 })
 export class TestimonialsComponent {
-testimonials = {
-  title: "FEEDBACK",
-  description: "What our customers are saying",
-  detail:"",
-  feedbacks: [
-    {name: "John Doe", userimage: "../assets/images/user-images/user-1.jpg", comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
-    {name: "Roslyn Doe", userimage: "../assets/images/user-images/user-2.jpg", comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
-    {name: "THomas Doe", userimage: "../assets/images/user-images/user-3.jpg", comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."}
-  ]
-}
+
+  testimonials!: ConfigItem | undefined;
+  configService: ConfigService = inject(ConfigService);
+  
+  constructor() {
+    this.testimonials = this.configService.getPageByName("testimonials");
+  }
+
 }
