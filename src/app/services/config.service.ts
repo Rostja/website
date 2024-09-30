@@ -5,6 +5,7 @@ import { ConfigItem } from './config-item';
   providedIn: 'root'
 })
 export class ConfigService {
+  apiUrl = "http://localhost:3000/configuration";
 
 configuration : ConfigItem[] = [
   {id: 1,
@@ -210,6 +211,9 @@ configuration : ConfigItem[] = [
 
   constructor() { }
 
+  getAllPages(): ConfigItem[] {
+    return this.configuration;
+  }
 
   getPageByName(pageName: string): ConfigItem | undefined {
     return this.configuration.find((configItem) => configItem.name === pageName);
