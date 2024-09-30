@@ -16,5 +16,6 @@ export class AboutComponent {
   
   constructor() {
     this.about = this.configService.getPageByName("about");
+    console.log(this.about);
   }
 }
