@@ -1,0 +1,7 @@
+@for (socialMedia of social?.data?.socialMedias; track socialMedia){
+    <li>
+        <a target={{socialMedia.target}} title={{socialMedia.title}} href={{socialMedia.url}}>
+            <i class="fa {{socialMedia.iconImage}} fa-1x"></i><span>{{socialMedia.icon}}</span>
+        </a>
+    </li>
+}

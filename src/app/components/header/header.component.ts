@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ConfigItem } from '../../services/config-item';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +11,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  header = {
-    title:"A FREE AND SIMPLE LANDING PAGE ",
-    description:"A free and simple landing Page ",
-    url:"Namari is a free landing page template you can use for your projects. ",
-    buttonnext:"START CREATING TODAY "
+  header!: ConfigItem | undefined;
+  configService: ConfigService = inject(ConfigService);
+  
+  constructor() {
+    this.header = this.configService.getPageByName("header");
   }
 }
+

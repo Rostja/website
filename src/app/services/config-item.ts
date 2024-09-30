@@ -45,12 +45,13 @@ export interface ConfigItem {
                 userimage: string;
                 comments: string;
             }[];
-            socialMedia?: {
+            socialMedias: {
                 id: number;
                 title: string;
                 target: string;
                 username: string;
                 url: string;
+                iconImage: string;
                 icon: string;
             }[];
         }
