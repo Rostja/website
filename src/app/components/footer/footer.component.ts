@@ -15,6 +15,10 @@ export class FooterComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.footer = this.configService.getPageByName("footer");
+    // this.footer = this.configService.getPageByName("footer");
+    this.configService.getPageById(8).subscribe((configItem: ConfigItem) => {
+      this.footer = configItem;
+    });
+    console.log(this.footer);
   }
 }

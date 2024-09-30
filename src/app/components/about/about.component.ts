@@ -15,7 +15,10 @@ export class AboutComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.about = this.configService.getPageByName("about");
+    this.configService.getPageById(1).subscribe((configItem: ConfigItem) => {
+      this.about = configItem;
+    });
+    // this.about = this.configService.getPageByName("about");
     console.log(this.about);
   }
 }

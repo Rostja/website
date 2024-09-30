@@ -15,6 +15,10 @@ export class GalleryComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.gallery = this.configService.getPageByName("gallery");
+    // this.gallery = this.configService.getPageByName("gallery");
+    this.configService.getPageById(3).subscribe((configItem : ConfigItem)=>{
+      this.gallery = configItem;
+    });
+    console.log(this.gallery);
   }
 }

@@ -15,6 +15,10 @@ export class PricingComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.pricing = this.configService.getPageByName("pricing");
+    // this.pricing = this.configService.getPageByName("pricing");
+    this.configService.getPageById(5).subscribe((configItem: ConfigItem) => {
+      this.pricing = configItem;
+    });
+    console.log(this.pricing);
   }
 }

@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ConfigItem } from './config-item';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Observable, of, filter } from 'rxjs';
+
+const httpOptions = {
+  'headers' : new HttpHeaders({'Content-Type' : 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -209,13 +215,55 @@ configuration : ConfigItem[] = [
   }
 ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAllPages(): ConfigItem[] {
-    return this.configuration;
+  /**
+   * A function to handle HTTP errors and log them to the console.
+   *
+   * @template T - The type of the result expected from the operation.
+   *
+   * @param operation - The name of the operation being performed. Default value is 'operation'.
+   * @param result - The default result to return in case of an error.
+   *
+   * @returns A function that takes an error as input and returns an Observable of type T.
+   *          If an error occurs, it logs the error to the console and returns the provided result.
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 
-  getPageByName(pageName: string): ConfigItem | undefined {
-    return this.configuration.find((configItem) => configItem.name === pageName);
+  /**
+   * Retrieves all the configuration pages from the API.
+   *
+   * @returns An Observable of type ConfigItem[] representing the configuration pages.
+   *          If an error occurs during the HTTP request, it will return an empty array.
+   */
+  getAllPages(): Observable<ConfigItem[]> {
+    // return this.configuration;
+    return this.http.get<ConfigItem[]>(this.apiUrl) ?? {};
+  }
+  getPageById(id: number): Observable<ConfigItem> {
+    // return this.configuration;
+    return this.http.get<ConfigItem>(`${this.apiUrl}/${id}`) ?? {};
+  }
+
+  /**
+   * Retrieves a specific configuration page by its name from the API.
+   *
+   * @param pageName - The name of the configuration page to retrieve.
+   *
+   * @returns An Observable of type ConfigItem representing the requested configuration page.
+   *          If the page is not found, the Observable will complete without emitting a value.
+   *          If an error occurs during the HTTP request, it will return an error notification.
+   */
+  getPageByName(pageName: string): Observable<ConfigItem> {
+    // return this.configuration.find((configItem) => configItem.name === pageName);
+    return this.http.get<ConfigItem>(this.apiUrl).pipe(
+      filter((configItem) => configItem.name === pageName),
+    )
   }
 }

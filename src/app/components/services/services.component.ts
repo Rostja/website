@@ -15,6 +15,10 @@ export class ServicesComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.services = this.configService.getPageByName("services");
+    // this.services = this.configService.getPageByName("services");
+    this.configService.getPageById(6).subscribe((configItem: ConfigItem) => {
+      this.services = configItem;
+    });
+    console.log(this.services);
   }
 }

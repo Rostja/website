@@ -15,6 +15,10 @@ export class SocialComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.social = this.configService.getPageByName("social");
+    // this.social = this.configService.getPageByName("social");
+    this.configService.getPageById(9).subscribe((configItem: ConfigItem) => {
+      this.social = configItem;
+    });
+    console.log(this.social);
   }
 }

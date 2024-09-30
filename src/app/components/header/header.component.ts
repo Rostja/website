@@ -15,7 +15,11 @@ export class HeaderComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.header = this.configService.getPageByName("header");
+    // this.header = this.configService.getPageByName("header");
+    this.configService.getPageById(4).subscribe((configItem : ConfigItem)=>{
+      this.header = configItem;
+    });
+    console.log(this.header);
   }
 }
 

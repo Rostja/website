@@ -15,7 +15,11 @@ export class TestimonialsComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.testimonials = this.configService.getPageByName("testimonials");
+    // this.testimonials = this.configService.getPageByName("testimonials");
+    this.configService.getPageById(7).subscribe((configItem: ConfigItem) => {
+      this.testimonials = configItem;
+    });
+    console.log(this.testimonials);
   }
 
 }

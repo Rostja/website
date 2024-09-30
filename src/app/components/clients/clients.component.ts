@@ -15,6 +15,10 @@ export class ClientsComponent {
   configService: ConfigService = inject(ConfigService);
   
   constructor() {
-    this.clients = this.configService.getPageByName("clients");
+    // this.clients = this.configService.getPageByName("clients");
+    this.configService.getPageById(2).subscribe((configItem: ConfigItem) => {
+      this.clients = configItem;
+    });
+    console.log(this.clients);                      
   }
 }
