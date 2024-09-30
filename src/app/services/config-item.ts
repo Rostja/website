@@ -8,9 +8,9 @@ export interface ConfigItem {
             detail?: string;
             url?: string;
             developer?: string;
-            buttonnext?: string;
+            buttontext?: string;
             Iconblocks?: {
-                Id: number;
+                id: number;
                 icon: string;
                 title: string;
                 description: string;
@@ -23,7 +23,7 @@ export interface ConfigItem {
             galleryBlocks?: {
                 id: number;
                 url: string;
-                caption: string;
+                name: string;
             }[];
             pricingBlocks?: {
                 id: number;
@@ -48,8 +48,9 @@ export interface ConfigItem {
             socialMedia?: {
                 id: number;
                 title: string;
+                target: string;
+                username: string;
                 url: string;
-                iconImage: string;
                 icon: string;
             }[];
         }
