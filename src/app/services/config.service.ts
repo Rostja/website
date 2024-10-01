@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ConfigItem } from './config-item';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable, of, filter } from 'rxjs';
+import { catchError, map, tap } from 'rxjs';
 
 const httpOptions = {
   'headers' : new HttpHeaders({'Content-Type' : 'application/json'})
@@ -12,6 +13,7 @@ const httpOptions = {
 })
 export class ConfigService {
   apiUrl = "http://localhost:3000/configuration";
+  apiSubscribe = "http://localhost:3000/subscribersBlock";
 
 configuration : ConfigItem[] = [
   {id: 1,
@@ -265,5 +267,25 @@ configuration : ConfigItem[] = [
     return this.http.get<ConfigItem>(this.apiUrl).pipe(
       filter((configItem) => configItem.name === pageName),
     )
+  }
+
+  /**
+   * Sends a POST request to the API to save a new subscriber's email.
+   *
+   * @param txt - The email address of the subscriber to be saved.
+   *
+   * @returns An Observable of type any representing the HTTP response from the API.
+   *          If the request is successful, the Observable will emit the response data.
+   *          If an error occurs during the request, the Observable will emit an error notification.
+   *          The tap operator is used to log the email address of the subscriber.
+   *          The catchError operator is used to handle any errors and log them to the console.
+   */
+  saveSubscribers(txt: string): Observable<any> {
+    return this.http.post<any>(`${this.apiSubscribe}`, { email: txt }).pipe(
+      tap(
+        post => console.log(`this is a: ${post.email}`),
+      ),
+      catchError(this.handleError('Adding subscriber', {}))
+    );
   }
 }
