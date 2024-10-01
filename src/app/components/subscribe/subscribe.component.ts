@@ -29,9 +29,16 @@ export class SubscribeComponent {
   
   subscribe() {
     if (this.subscribeForm.valid) {
-      console.log(this.subscribeForm.value);
+      console.log(this.subscribeForm.value.email);
+    } else {
+      console.log('Form is invalid');
     }
+
+    setTimeout(() => {
+      this.cancel();
+    }, 1000);
   }
+  
 
 
 
