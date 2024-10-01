@@ -41,9 +41,11 @@ export interface ConfigItem {
                 buttontext: string;
             }[];
             feedbacks?: {
+                id: number;
                 name: string;
                 userimage: string;
                 comments: string;
+                company: string;
             }[];
             socialMedias: {
                 id: number;
