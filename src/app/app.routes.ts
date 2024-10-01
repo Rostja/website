@@ -9,16 +9,20 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ServicesComponent } from './components/services/services.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 export const routes: Routes = [
-    {title: "Namari - Sexy as hell | About ", path: 'about', component: AboutComponent},
-    {title: "Namari - Sexy as hell | Clients ", path: 'clients', component: ClientsComponent},
-    {title: "Namari - Sexy as hell | Gallery ", path: 'gallery', component: GalleryComponent},
-    {title: "Namari - Sexy as hell | Home ", path: 'home', component: HeaderComponent},
-    {title: "Namari - Sexy as hell | Home ", path: '', component: HeaderComponent},
-    {title: "Namari - Sexy as hell | Pricing ", path: 'pricing', component: PricingComponent},
-    {title: "Namari - Sexy as hell | Services ", path: 'services', component: ServicesComponent},
-    {title: "Namari - Sexy as hell | Testimonials ", path: 'testimonials', component: TestimonialsComponent},
-    {title: "Namari - Sexy as hell | Notfound ", path: '**', component: NotfoundComponent}
+    {title: "Namari-Sexy as hell | About ", path: 'about', component: AboutComponent},
+    {title: "Namari-Sexy as hell | Clients ", path: 'clients', component: ClientsComponent},
+    {title: "Namari-Sexy as hell | Gallery ", path: 'gallery', component: GalleryComponent},
+    {title: "Namari-Sexy as hell | Home ", path: 'home', component: HeaderComponent},
+    {title: "Namari-Sexy as hell | Home ", path: '', component: HeaderComponent},
+    {title: "Namari-Sexy as hell | Pricing ", path: 'pricing', component: PricingComponent},
+    {title: "Namari-Sexy as hell | Services ", path: 'services', component: ServicesComponent},
+    {title: "Namari-Sexy as hell | Subscribe ", path: 'subscribe', component: SubscribeComponent, outlet: 'popup'},
+    {title: "Namari-Sexy as hell | Contact ", path: 'contact', component: ContactComponent, outlet: 'popup'},
+    {title: "Namari-Sexy as hell | Testimonials ", path: 'testimonials', component: TestimonialsComponent},
+    {title: "Namari-Sexy as hell | Notfound ", path: '**', component: NotfoundComponent}
 ];

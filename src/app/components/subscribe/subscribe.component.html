@@ -2,11 +2,11 @@
     <div class="container">
         <div class="center-form panel">
         <div class="panel-body">
-            <a (click) = cancel() style="cursor:hand;"><i class="ion-close-round"></i></a>
+            <a (click) = cancel() style="cursor:hand;"><i class="fa fa-window-close-round"></i></a>
             <form [formGroup]="subscribeForm" (ngSubmit)="subscribe()">
                 <div class="form-group">
                     <input type="text" class="form-control input-lg" formControlName="email" id="email" placeholder="Email">
-                    <span class=" ion-at form-control-icon"></span>
+                    <span class="fa fa-at form-control-icon"></span>
                 </div>
                 <button type="submit" [disabled]="!subscribeForm.valid" class="btn btn-primary btn-lg btn-block">Subscribe</button>
             </form>
