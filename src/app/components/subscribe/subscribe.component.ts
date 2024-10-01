@@ -32,13 +32,13 @@ export class SubscribeComponent {
   
   subscribe() {
     if (this.subscribeForm.valid) {
-      console.log(this.subscribeForm.value.email);
+      console.log(`from the component ${this.subscribeForm.value.email}`);
     } else {
       console.log('Form is invalid');
     }
 
     this.ConfigService.saveSubscribers(this.subscribeForm.value.email).subscribe(
-     { next: (response) => console.log('Success:', response),
+     { next: (response) => console.log('Success:', `from the response ${response}`),
       error: (error) => console.error('Error:', error),
       complete: () => console.log('Completed')
      }
