@@ -46,6 +46,7 @@ Na spustenie su potrebne nainstalovat:
 
 5. Textový editor alebo IDE:
    - Odporúčané sú napríklad Visual Studio Code, WebStorm, alebo Sublime Text.
+   - https://code.visualstudio.com/download
 
 6. Webový prehliadač:
    - Najlepšie moderný prehliadač ako Chrome, Firefox, alebo Edge.
