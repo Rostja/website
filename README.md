@@ -84,7 +84,8 @@ Prepnúť sa medzi vetvami môžete príkazom:  git checkout názov_vetvy
    ```
 6. Preto aby bola stranka plne funkcna je potrebne spustit zaroven aj dalsi server beziaci na http://localhost:3000/
 7. Je porebne otvorit Command Prompt a do neho zadat:
-8. npm install -g json-server
-9. npx json-server --version
-10. npx json-server db.json5 --watch
-11. Po tychto krokoch sa spusti databaza beziaca na localhost:3000, ktora uklada subscriberov, a zaroven web stranka byt funkcna.
+8. cd (plnu cestu k suboru k databaze db.json5...v mojom pripade cd C:\Users\rasto\Desktop\website\src\db.json5)
+9. npm install -g json-server
+10. npx json-server --version
+11. npx json-server db.json5 --watch
+12. Po tychto krokoch sa spusti databaza beziaca na localhost:3000, ktora uklada subscriberov, a zaroven web stranka byt funkcna.
