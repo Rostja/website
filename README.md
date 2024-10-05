@@ -55,19 +55,27 @@ Po inštalácii týchto nástrojov by ste mali byť schopní spustiť Angular pr
 
 1. Klonujte repozitár do Visual Studio Code:
    ```
-   git clone https://github.com/vaše-meno/názov-repozitára.git
-   ```
+   - Otvorte paletu príkazov (Ctrl+Shift+P alebo Cmd+Shift+P na Mac).
+   - Zadajte "Git: Clone" a vyberte túto možnosť.
+   - Vložte URL repozitára: https://github.com/Rostja/website.git
+   - Vyberte miesto, kam chcete projekt uložiť na vašom počítači.
 
-2. Prejdite do priečinka projektu:
-   ```
-   cd názov-repozitára
-   ```
+2. Otvorte terminál v VS Code:
+   - Použite klávesovú skratku Ctrl+` (backtick) alebo choďte do menu View > Terminal.
 
-3. Nainštalujte projektové závislosti:
-   ```
-   npm install -g @angular/cli
-   ```
+3. Nainštalujte závislosti:
+   - V termináli zadajte príkaz:
+     ```
+      npm install -g @angular/cli
+     ```
 
 4. Spustite vývojový server:
+   - Po dokončení inštalácie závislostí zadajte:
+     ```
+     ng serve --open
+     ```
+
+5. Otvorte prehliadač:
+   - Prejdite na adresu http://localhost:4200/
    ```
-   ng serve --open
+
