@@ -67,6 +67,7 @@ Po inštalácii týchto nástrojov by ste mali byť schopní spustiť Angular pr
    - V termináli zadajte príkaz:
      ```
       npm install -g @angular/cli
+      npm install
      ```
 
 Zistite dostupné vetvy:                    git branch -a
@@ -75,7 +76,7 @@ Prepnúť sa medzi vetvami môžete príkazom:  git checkout názov_vetvy
 4. Spustite vývojový server:
    - Po dokončení inštalácie závislostí zadajte:
      ```
-     ng serve --open
+     npx ng serve 
      ```
 
 5. Otvorte prehliadač:
