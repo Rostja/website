@@ -67,15 +67,24 @@ Po inštalácii týchto nástrojov by ste mali byť schopní spustiť Angular pr
    - V termináli zadajte príkaz:
      ```
       npm install -g @angular/cli
+      npm install
      ```
+
+Zistite dostupné vetvy:                    git branch -a
+Prepnúť sa medzi vetvami môžete príkazom:  git checkout názov_vetvy
 
 4. Spustite vývojový server:
    - Po dokončení inštalácie závislostí zadajte:
      ```
-     ng serve --open
+     npx ng serve 
      ```
 
 5. Otvorte prehliadač:
    - Prejdite na adresu http://localhost:4200/
    ```
-
+6. Preto aby bola stranka plne funkcna je potrebne spustit zaroven aj dalsi server beziaci na http://localhost:3000/
+7. Otvorit si novy terminal vo Visual Studio Code a je potrebne zadat:
+9. npm install -g json-server
+10. npx json-server --version
+11. npx json-server src/db.json5 --watch 
+12. Po tychto krokoch sa spusti databaza beziaca na localhost:3000, ktora uklada subscriberov, a zaroven web stranka je funkcna.
